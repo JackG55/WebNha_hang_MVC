@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewBag.Title = "Thực đơn";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+@using WebApplication1.Models;
+@model List<LoaiMon>
+
+@section setactive_menu{
+    active
+}
+
+
+
+<section class="menu">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="menubar col-md-2 marginchangesmall show-on-scroll">
+                <ul>
+                    <li>
+                        <h3>Thực đơn</h3>
+                    </li>
+                    @*<li>
+                            <a href="#" onclick="changeMenu(event, 'mon_dac_sac')" id="defaultOpen">
+                                Món ăn
+                                đặc sắc
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="changeMenu(event, 'mon_man')">Món mặn</a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="changeMenu(event, 'mon_rau')">Món rau</a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="changeMenu(event, 'do_uong')">Đồ uống</a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="changeMenu(event, 'gia_vi')">Gia vị</a>
+                        </li>
+                        <li>
+                            <a href="#" onclick="changeMenu(event, 'combo')">Combo</a>
+                        </li>*@
+
+                    @foreach (LoaiMon lm in Model)
+                    {
+                        <li>
+                            <a href="@Url.Action("Menu", new { @Maloaimon=lm.MaLoaiMon})">@lm.TenLoaiMon</a>
+                            @*<a onclick="getAll(@lm.MaLoaiMon);">@lm.TenLoaiMon</a>*@
+                        </li>
+                    }
+
+                </ul>
+            </div>
+
+            <div class="menufood col-md-10 marginchangebig">
+                <div id="dataModel" class="module-body">
+                    @Html.Action("Mon_an", "Menu");
+                </div>
+               
+
+
+            </div>
+            <div class="buy">
+                <div class="detail" id="bill">
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-md-11">
+                                <h2 class="section-header">
+                                    GIỎ HÀNG
+                                </h2>
+
+                            </div>
+                            <div class="col-md-1">
+                                <button class="fas fa-minus  minus-btn" onclick="closeBill()"></button>
+                            </div>
+                        </div>
+
+                        <div class="cart-row">
+                            <span class="cart-item cart-header cart-column">MÓN</span>
+                            <span class="cart-price cart-header cart-column">TIỀN</span>
+                            <span class="cart-total-one cart-header cart-column">THÀNH TIỀN</span>
+                            <span class="cart-quantity cart-header cart-column">SỐ LƯỢNG</span>
+                        </div>
+                        <div class="cart-items">
+                            <!--
+                                 <div class="cart-row">
+                                  <div class="cart-item cart-column">
+                                      <img class="cart-item-image" src="/Content/Image/breakfast-1.jpg" width="100" height="100">
+                                      <span class="cart-item-title">Mỳ xào trứng </span>
+                                  </div>
+                                  <span class="cart-price cart-column">20000đ</span>
+
+                                  <div class="cart-quantity cart-column">
+                                      <input class="cart-quantity-input" type="number" value="1">
+                                      <button class="btn-danger" type="button">HUỶ</button>
+                                  </div>
+                              </div>
+                            -->
+
+                        </div>
+                        <div class="cart-total">
+                            <strong class="cart-total-title">Tổng</strong>
+                            <span class="cart-total-price"></span>
+                        </div>
+                        <button class="btn btn-primary btn-purchase" type="button">ĐẶT NGAY</button>
+                    </div>
+                </div>
+                <a href="#bill" onclick="openBill()">
+                    <div class="container">
+                        <div class="row cart">
+                            <div class="icon-cart">
+                                <i class="fa fa-camera" aria-hidden="true"></i>
+                                <span class="money">0đ</span>
+                            </div>
+                            <div class="text">Vui lòng đặt món ăn</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>

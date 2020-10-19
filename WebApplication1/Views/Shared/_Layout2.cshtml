@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--Meta -->
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!--TITLE-->
+    <title>MTA's Restaurant</title>
+
+    <!--bootstrap link-->
+    <link rel="stylesheet" href="/Content/Css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!--Google Font-->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Tangerine" />
+
+    <!--Font Aweasome-->
+    <script src="https://kit.fontawesome.com/58f62a05b5.js"
+            crossorigin="anonymous"></script>
+
+    <!--style css-->
+    <link href="~/Content/Css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/Content/Css/style_about.css" />
+</head>
+
+<body>
+    <!--Header start-->
+    <header>
+        <!--Navbar menu-->
+        <div class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+             id="ftco-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    MTA's RESTAURANT
+                    <img src="/Content/Image/MTA1.png"
+                         alt="logo"
+                         style=" height: 70px;" />
+                </a>
+                <button class="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#ftco-nav"
+                        aria-controls="ftco-nav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
+                </button>
+
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item " >
+                            <a href="/Home/Index" class="nav-link">Trang chủ</a>
+                        </li>
+                        <li class="nav-item @RenderSection("setactive_about",false)">
+                            <a href="/Home/About" class="nav-link">Giới thiệu</a>
+                        </li>
+                        <li class="nav-item @RenderSection("setactive_menu",false)">
+                            <a href="/Menu/Menu" class="nav-link">Thực đơn</a>
+                        </li>
+                        <li class="nav-item @RenderSection("setactive_contact",false)">
+                            <a href="/Home/Contact" class="nav-link">Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--Navbar menu end-->
+        <div class="overlay"></div>
+
+        <div class="image_about">
+            <img src="/Content/Image/bg_3.jpg" alt="img1" />
+        </div>
+
+        <div class="container">
+            <div class="row text-bg">
+                <div class="col text-center mb-4 show-on-scroll">
+                    <h1 class="bread">@ViewBag.Title</h1>
+                    <p class="breadcrumbs">
+                        <span class="mr-2">
+                            <a href="/Home/Index">
+                                Trang chủ
+                                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </span>
+
+                        <span>
+                            @ViewBag.Title
+                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--Header end-->
+@RenderBody();
+
+    <!--Footer start-->
+    <footer>
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-text">
+                        <h2 class="footer-heading">MTA</h2>
+                        <p>
+                            Điểm đến không thể thiếu trong cuộc hành trình của bạn, mang đến
+                            cho bạn không chỉ những món ngon mà còn là những bài học!
+                        </p>
+                        <ul class="icon">
+                            <li>
+                                <a href="#">
+                                    <span class="fa fa-twitter show-on-scroll"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="fa fa-facebook show-on-scroll"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="fa fa-instagram show-on-scroll"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Hour Open-->
+                <div class="col-md-6 col-lg-3">
+                    <div clas="footer-text">
+                        <h2 class="footer-heading">Giờ mở cửa</h2>
+                        <ul class="open-hours-list">
+                            <li class="open-hours-item">
+                                <span>Thứ hai</span>
+                                <span>7:00-22:00</span>
+                            </li>
+                            <li class="open-hours-item">
+                                <span>Thứ ba</span>
+                                <span>7:00-22:00</span>
+                            </li>
+                            <li class="open-hours-item">
+                                <span>Thứ tư</span>
+                                <span>7:00-22:00</span>
+                            </li>
+                            <li class="open-hours-item">
+                                <span>Thứ năm</span>
+                                <span>7:00-22:00</span>
+                            </li>
+                            <li class="open-hours-item">
+                                <span>Thứ sáu</span>
+                                <span>7:00-22:00</span>
+                            </li>
+                            <li class="open-hours-item">
+                                <span>Thứ bảy</span>
+                                <span>7:00-22:00</span>
+                            </li>
+                            <li class="open-hours-item">
+                                <span>Chủ nhật</span>
+                                <span>7:00-22:00</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--Hour Open-->
+                <!--Instagram-->
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-text">
+                        <h2 class="footer-heading">Instagram</h2>
+                        <div class="thumb d-flex">
+                            <a href="#" class="thumb-menu img" style="background-image: url(/Content/Image/insta-1.jpg);"></a>
+                            <a href="#" class="thumb-menu img" style="background-image: url(/Content/Image/insta-2.jpg);"></a>
+                            <a href="#" class="thumb-menu img" style="background-image: url(/Content/Image/insta-3.jpg);"></a>
+                        </div>
+                        <div class="thumb d-flex">
+                            
+                            <a href="#" class="thumb-menu img" style="background-image: url(/Content/Image/insta-4.jpg);"></a>
+                            <a href="#" class="thumb-menu img" style="background-image: url(/Content/Image/insta-5.jpg);"></a>
+                            <a href="#" class="thumb-menu img" style="background-image: url(/Content/Image/insta-6.jpg);"></a>
+                        </div>
+                    </div>
+                </div>
+                <!--Instagram-->
+                <!--Newsletter-->
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-text">
+                        <h2 class="footer-heading">Ghi danh</h2>
+                        <p>Hãy là một phần trong sự tuyệt vời của chúng tôi</p>
+                        <form action="#" class="subscribe-form">
+                            <div class="form-group">
+                                <input type="text" class="form-control mb-2 text-center" placeholder="Điền email vào đây">
+                                <input type="submit" value="XÁC NHẬN" class="form-control submit px-3">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--Footer end-->
+    <!--Script-->
+    <script src="~/Content/Js/aniamtion.js"></script>
+    <script src="~/Content/Js/script.js"></script>
+</body>
+</html>

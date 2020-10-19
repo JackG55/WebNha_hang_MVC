@@ -1,0 +1,321 @@
+﻿@using WebApplication1.Models
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+@model List<PhanHoi>
+
+<!--About-->
+<section class="space-section about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 d-flex">
+                <div class="img img-1 mr-md-2 show-on-scroll"
+                     style="background-image: url(/Content/Image/about.jpg)"></div>
+                <div class="img img-2 mr-md-2 show-on-scroll"
+                     style="background-image: url(/Content/Image/about-1.jpg)"></div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="heading-section">
+                    <span class="subheading">ABOUT</span>
+                    <h2>MTA's RESTAURANT</h2>
+                </div>
+                <p>
+                    Nằm ngay trên đoạn đường Hoàng Quốc Việt đầy nắng và gió, nơi mang
+                    đến cho bạn những hương vị khó tả, quyện lẫn vào từng giác quan
+                    trên cơ thể. Bạn chỉ cần chọn món và cảm nhận!
+                </p>
+
+                <pc class="time">
+                    <span>
+                        T2 - CN
+                        <strong>7AM - 22PM</strong>
+                    </span>
+                    <span>
+                        <a href="#">+84 389 363 797 </a>
+                    </span>
+                </pc>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="counter-time">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 align-item-center show-on-scroll">
+                <div class="row">
+                    <div class="col-md-6 col-lg-3 d-flex">
+                        <div class="block-18">
+                            <div class="text">
+                                <strong class="number counter" data-number="18">00</strong>
+                                <span>NĂM KINH NGHIỆM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 d-flex">
+                        <div class="block-18">
+                            <div class="text">
+                                <strong class="number" data-number="100">00</strong>
+                                <span>THỰC ĐƠN</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 d-flex">
+                        <div class="block-18">
+                            <div class="text">
+                                <strong class="number" data-number="50">00</strong>
+                                <span>NHÂN VIÊN</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 d-flex">
+                        <div class="block-18">
+                            <div class="text">
+                                <strong class="number" data-number="15000">0</strong>
+                                <span>KHÁCH HÀNG HÀI LÒNG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <p>
+                    Thời gian và những con số không nói dối. Sự chuyên nghiệp và tận tuỵ
+                    chính là chìa khoá của sự thành công
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="space-section bg-light">
+    <div class="container">
+        <div class="row service">
+            <div class="col-md-12 text-center show-on-scroll">
+                <div class="heading-section">
+                    <span class="subheading">DỊCH VỤ</span>
+                    <h2 class="mb-4">
+                        ĐẲNG CẤP THƯỢNG HẠNG
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 algin-stretch">
+                <div class="block-6">
+                    <div class="icon">
+                        <i class="fas fa-birthday-cake show-on-scroll"></i>
+                    </div>
+                    <div class="block-body">
+                        <h3>TỔ CHỨC SINH NHẬT</h3>
+                        <p>
+                            Những bữa tiệc sinh nhật luôn truyền cảm hứng
+                            cho chúng tôi trong việc chuẩn bị , thiết kế,
+                            phục vụ
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 algin-stretch">
+                <div class="block-6">
+                    <div class="icon">
+                        <i class="fas fa-handshake show-on-scroll"></i>
+                    </div>
+                    <div class="block-body">
+                        <h3>HỌP MẶT</h3>
+                        <p>
+                            Nơi mang lại tự tin cho bạn trong những cuộc gặp
+                            Khẳng định đẳng cấp và vị thế của bản thân.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 algin-stretch">
+                <div class="block-6">
+                    <div class="icon">
+                        <i class="fas fa-glass-cheers show-on-scroll"></i>
+                    </div>
+                    <div class="block-body">
+                        <h3>NHỮNG BỮA TIỆC</h3>
+                        <p>
+                            Vị ngon bất tận sẽ khiến những bữa tiệc dường như không
+                            có hồi kết. Âm thanh, ánh sáng, những vũ công sẽ mang đến
+                            cho bạn kỷ niệm tuyệt vời
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row no-gutters justify-content-center mb-5 pb-2">
+            <div class="col-md-12 text-center heading-section ftco-animate show-on-scroll">
+                <span class="subheading">MENU</span>
+                <h2 class="mb-4">Món ăn đặc biệt</h2>
+            </div>
+        </div>
+        <div class="row no-gutters d-flex align-items-stretch">
+            @Html.Action("Small_menu", "Home");
+            @*<div class="col-md-12 col-lg-6 d-flex align-self-stretch show-on-scroll">
+                <div class="menus d-sm-flex ftco-animate align-items-stretch">
+                    <div class="menu-img img" style="background-image: url(/Content/Image/breakfast-1.jpg);"></div>
+                    <div class="text d-flex align-items-center">
+                        <div>
+                            <div class="d-flex">
+                                <div class="one-half">
+                                    <h3>Mỳ xào trứng</h3>
+                                </div>
+                            </div>
+                            <p>35000đ</p>
+                            <p><a href="#" class="btn btn-primary">Đặt ngay</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-6 d-flex align-self-stretch show-on-scroll">
+                <div class="menus d-sm-flex ftco-animate align-items-stretch">
+                    <div class="menu-img img" style="background-image: url(/Content/Image/breakfast-2.jpg);"></div>
+                    <div class="text d-flex align-items-center">
+                        <div>
+                            <div class="d-flex">
+                                <div class="one-half">
+                                    <h3>Mỳ xào trứng</h3>
+                                </div>
+                            </div>
+                            <p>35000đ</p>
+                            <p><a href="#" class="btn btn-primary">Đặt ngay</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-lg-6 d-flex align-self-stretch show-on-scroll">
+                <div class="menus d-sm-flex ftco-animate align-items-stretch">
+                    <div class="menu-img img order-md-last" style="background-image: url(/Content/Image/breakfast-3.jpg);"></div>
+                    <div class="text d-flex align-items-center">
+                        <div>
+                            <div class="d-flex">
+                                <div class="one-half">
+                                    <h3>Mỳ xào trứng</h3>
+                                </div>
+
+                            </div>
+                            <p>35000đ</p>
+                            <p><a href="#" class="btn btn-primary">Đặt ngay</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-6 d-flex align-self-stretch show-on-scroll">
+                <div class="menus d-sm-flex ftco-animate align-items-stretch">
+                    <div class="menu-img img order-md-last" style="background-image: url(/Content/Image/breakfast-5.jpg);"></div>
+                    <div class="text d-flex align-items-center">
+                        <div>
+                            <div class="d-flex">
+                                <div class="one-half">
+                                    <h3>Mỳ xào trứng</h3>
+                                </div>
+
+                            </div>
+                            <p>35000đ</p>
+                            <p><a href="#" class="btn btn-primary">Đặt ngay</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-lg-6 d-flex align-self-stretch show-on-scroll">
+                <div class="menus d-sm-flex ftco-animate align-items-stretch">
+                    <div class="menu-img img" style="background-image: url(/Content/Image/breakfast-6.jpg);"></div>
+                    <div class="text d-flex align-items-center">
+                        <div>
+                            <div class="d-flex">
+                                <div class="one-half">
+                                    <h3>Mỳ xào trứng</h3>
+                                </div>
+
+                            </div>
+                            <p>35000đ</p>
+                            <p><a href="#" class="btn btn-primary">Đặt ngay</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-6 d-flex align-self-stretch show-on-scroll">
+                <div class="menus d-sm-flex ftco-animate align-items-stretch">
+                    <div class="menu-img img" style="background-image: url(/Content/Image/breakfast-2.jpg);"></div>
+                    <div class="text d-flex align-items-center">
+                        <div>
+                            <div class="d-flex">
+                                <div class="one-half">
+                                    <h3>Mỳ xào trứng</h3>
+                                </div>
+
+                            </div>
+                            <p>35000đ</p>
+                            <p><a href="#" class="btn btn-primary">Đặt ngay</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+                <span class="subheading">FeedBack</span>
+                <h2 class="mb-4">Phản hồi khách hàng</h2>
+            </div>
+        </div>
+        <div class="row">
+            @{
+                int i = 0;
+                foreach (PhanHoi ph in Model)
+                {
+                    if (ph.TrangThai == 1)
+                    {
+                        i++;
+                        <div class="col-md-4 ftco-animate show-on-scroll">
+                            <div class="blog-entry">
+                                <a href="@Url.Action("Detail", new { @maPH = ph.MaPhanHoi})" class="block-20" style="background-image: url('/Content/Image/image_1.jpg');">
+                                </a>
+                                <div class="text pt-3 pb-4 px-4">
+                                    <div class="meta">
+                                        <div><p>@ph.TenKhachHang</p></div>
+                                        <br />
+                                        <div><p>@ph.ThoiGian</p></div>
+                                    </div>
+                                    <h3 class="heading">@ph.ChuDe</h3>
+                                    <div class="clearfix">
+                                        <a href="@Url.Action("Detail", new { @maPH = ph.MaPhanHoi})" class="float-left read">Đọc thêm</a>
+                                        <p href="#" class="float-right meta-chat">
+                                            <span class="fas fa-feather    "></span> 3
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                }
+            }
+
+
+
+        </div>
+    </div>
+</section>
