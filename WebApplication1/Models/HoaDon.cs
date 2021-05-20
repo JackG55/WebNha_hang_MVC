@@ -12,12 +12,13 @@ namespace WebApplication1.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HoaDon()
         {
+            Ban_HoaDon = new HashSet<Ban_HoaDon>();
             DatMons = new HashSet<DatMon>();
         }
 
         [Key]
-        [StringLength(10)]
-        public string MaHoaDon { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int MaHoaDon { get; set; }
 
         public DateTime? GioVao { get; set; }
 
@@ -29,6 +30,11 @@ namespace WebApplication1.Models
 
         [StringLength(10)]
         public string NguoiLapHoaDon { get; set; }
+
+        public int? TrangThai { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Ban_HoaDon> Ban_HoaDon { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DatMon> DatMons { get; set; }

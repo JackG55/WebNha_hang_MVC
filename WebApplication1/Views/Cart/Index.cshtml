@@ -1,0 +1,51 @@
+﻿@{
+    Layout = null;
+}
+@using WebApplication1.Models;
+@model List<GioHang>
+
+
+<div class="buy">
+    <div class="detail" id="bill">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <button type="button" class="setfontbutton_cart" onclick="getMonTrongGioHang(0)">
+                        Món ăn mới thêm
+                    </button>
+                </div>
+                <div class="col-md-5">
+                    <button type="button" class="setfontbutton_cart" onclick="getMonDaDat(1)">
+                        Đã đặt hàng
+                    </button>
+                </div>
+                <div class="col-md-1">
+                    <button class="fas fa-minus" onclick="closeBill()"></button>
+                </div>
+            </div>
+
+            <div id="monantheotrangthai">
+
+            </div>
+        </div>
+    </div>
+    <a href="#bill" onclick="openBill()">
+        <div class="container">
+            <div class="row cart">
+                <div class="icon-cart">
+                    <i class="fa fa-camera" aria-hidden="true"></i>
+                    <span class="money">0đ</span>
+                </div>
+                <button class="btn btn-primary btn-purchase" type="button" onclick="Xacnhandathang()">XÁC NHẬN ĐẶT MÓN</button>
+            </div>
+        </div>
+    </a>
+</div>
+
+<script>
+    $(document).ready(function () {
+        document.getElementsByClassName("setfontbutton_cart")[0].click();
+    })
+
+</script>

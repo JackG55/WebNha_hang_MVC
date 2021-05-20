@@ -27,6 +27,8 @@ namespace WebApplication1.Models
         [StringLength(20)]
         public string Vitri { get; set; }
 
+        public virtual Ban_HoaDon Ban_HoaDon { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DatMon> DatMons { get; set; }
     }

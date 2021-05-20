@@ -19,12 +19,15 @@ namespace WebApplication1.Controllers
         }
 
 
-        [ChildActionOnly]
-        public ActionResult Mon_an(int maloaimon=1)
+        public ActionResult Mon_an(int maloaimon = 1)
         {
-
             var mon_an = context.MonAns.Where(x => x.MaLoaiMon == maloaimon).ToList();
-            return PartialView(mon_an);
+            return PartialView("_PartialMon_an");
+        }
+
+        public ActionResult LayMonAn(int id)
+        {
+            return PartialView("_PartialMon_an", context.MonAns.Where(x => x.MaLoaiMon == id).ToList());
         }
 
 

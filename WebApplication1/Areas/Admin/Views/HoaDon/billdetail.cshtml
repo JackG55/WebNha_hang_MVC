@@ -1,0 +1,124 @@
+﻿@using WebApplication1.Models
+
+@{
+    ViewBag.Title = "Chi tiết hoá đơn";
+    Layout = "~/Areas/Admin/Views/Shared/_UseLayout.cshtml";
+}
+
+@model List<DatMon_HoaDon_MonAn>
+<div>
+    <div class="page-header">
+        <div class="col-lg-1">
+            <a href="@Url.Action("Index","AdminHome")"><i class="fas fa-arrow-circle-left fa-2x"></i></a>
+        </div>
+        <div class="col-lg-11">
+            <h1>Bill của Bàn</h1>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Danh sách món đã đặt</div>
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                <table id="dtVerticalScrollExample" class="table table-image table-sm table-bordered table-hover table-responsive-md btn-table margintable" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="th-sm">Mã món ăn</th>
+                            <th scope="col" class="th-sm">Tên món ăn</th>
+                            <th scope="col" class="th-sm">Hình ảnh </th>
+                            <th scope="col" class="th-sm">Số lượng </th>
+                            <th scope="col" class="th-sm">Giá món</th>
+                            <th scope="col" class="th-sm">Giá khuyến mãi</th>
+                            <th scope="col" class="th-sm">Trạng thái</th>
+                            <th scope="col" class="th-sm"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (DatMon_HoaDon_MonAn it in Model)
+                        {
+                        <tr>
+                            <td>@it.MaMonAn</td>
+                            <td>@it.TenMonAn</td>
+                            <td><img src="~/Content/image/@it.HinhAnh" style="width:100px; height:100px" /></td>
+                            <td>@it.SoLuong</td>
+                            <td>@it.GiaMon</td>
+                            <td>@it.GiaKhuyenMai</td>
+                            <td>
+                                @if (it.TrangThai == 1)
+                                {
+                                    <input type="checkbox" class="checks" checked value="@it.MaDatMon">
+                                }
+                                else
+                                {
+                                    <input type="checkbox" class="checks" value="@it.MaDatMon">
+                                }
+                            </td>
+                            <td>
+                                <button class="btn-danger huy_mon" value="@it.MaDatMon">Huỷ</button>
+                            </td>
+                        </tr>
+                        }
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button class="btn-block checkall" style="background-color: azure;">Đánh dấu tất cả</button>
+                        </td>
+                        <td></td>
+                    </tr> 
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+ 
+<div>
+    <button type="button" class="btn-danger btn-thanh-toan" style="width: 17rem;height: 5rem; margin-right: 0" data-url="@Url.Action("Thanh_toan","HoaDon", new {@ma_hoa_don = @ViewBag.MaHoaDon })">Thanh Toán</button>
+</div>
+
+
+<div id="Modal_partial"></div>
+
+<script>
+    $(document).ready(function () {
+        $('.checks').change(function (event) {
+            var id = event.target.value
+            console.log(id)
+            $.ajax({
+                url: '/HoaDon/edit_trang_thai/' + id,
+                contentType: 'application/html ; charset:utf-8',
+                type: 'GET'
+                
+            });
+        })
+
+        var place = $('#Modal_partial');
+        $('.btn-thanh-toan').click(function () {
+            var url = $(this).data('url');
+            $.get(url).done(function (data) {
+                place.html(data);
+                place.find('.modal').modal('show');
+
+            })
+        })
+
+        $('.huy_mon').click(function (event) {
+            var id = event.target.value
+            console.log(id)
+            $.ajax({
+                url: '/HoaDon/huy_mon/' + id,
+                contentType: 'application/html ; charset:utf-8',
+                type: 'GET'
+                
+            });
+        })
+    })
+</script>
+

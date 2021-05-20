@@ -16,6 +16,7 @@ namespace WebApplication1.Models
         [StringLength(100)]
         public string TenKhachHang { get; set; }
 
+        [Required]
         [StringLength(100)]
         public string Email { get; set; }
 
@@ -25,7 +26,7 @@ namespace WebApplication1.Models
         [Column(TypeName = "ntext")]
         public string LoiNhan { get; set; }
 
-        public int? MaMonAn { get; set; }
+        public int MaMonAn { get; set; }
 
         public DateTime? ThoiGian { get; set; }
 

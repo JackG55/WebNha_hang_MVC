@@ -1,0 +1,192 @@
+﻿
+@{
+    ViewBag.Title = "Quản lý đồ ăn";
+    Layout = "~/Areas/Admin/Views/Shared/_UseLayout.cshtml";
+}
+@section Setactive_index{
+    class = "active"
+}
+@using WebApplication1.Models
+@model List<Ban>
+<!-- Xay dung khung nhin chung cho trang web-->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Dashboard</h1>
+    </div>
+</div>
+<!-- tạo 1 hang gom button chính-->
+<div class="row">
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-red">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-files-o fa-fw fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">13</div>
+                        <div>Hoá đơn đang phục vụ</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer">
+                    <span class="pull-left">Chi tiết</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-green">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-files-o fa-fw fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">10</div>
+                        <div>Hoá đơn đã thanh toán</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer">
+                    <span class="pull-left">Chi tiết</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-users fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">26</div>
+                        <div>Khách hàng</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer">
+                    <span class="pull-left">Chi tiết</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-yellow">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fas fa-database fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <div class="huge">120</div>
+                        <div>Kho hàng</div>
+                    </div>
+                </div>
+            </div>
+            <a href="#">
+                <div class="panel-footer">
+                    <span class="pull-left">Chi tiết</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- tao danh sach ban va bao cao-->
+<div class="row">
+    <!-- tao danh sach ban-->
+    <div class="col-lg-8">
+        @{
+            var groups = Model.GroupBy(x => Model.IndexOf(x) / 4).ToList();
+            foreach (var parent in groups)
+            {
+                <div class="row">
+                    @foreach (Ban it in parent)
+                    {
+                    <div class="col-lg-3">
+                        @if (@it.TrangThai == 1)
+                        {
+                            <div class="panel panel-red">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="panel-tables">@it.TenBan</div>
+                                    </div>
+                                </div>
+                                <a href="@Url.Action("billdetail", "HoaDon", new {@maban = it.MaBan })">
+                                    <div class="panel-footer">
+                                        <span class="panel-footertables"><i class="fas fa-money-bill"></i> Tính tiền </span>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                        @if (@it.TrangThai == 0)
+                        {
+                            <div class="panel panel-green">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="panel-tables">@it.TenBan</div>
+                                    </div>
+                                </div>
+                                <a href="@Url.Action("change_status","AdminHome", new { @maban = it.MaBan})">
+                                    <div class="panel-footer">
+                                        <span class="panel-footertables"><i class="fas fa-money-bill"></i> Nhận bàn </span>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                    }
+                </div>
+             }
+        }
+    </div>
+    <!-- tao bao cao hom nay-->
+    <div class="col-lg-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-bell fa-fw"></i> Báo cáo trong hôm nay
+            </div>
+            <!-- panel-heading-->
+            <div class="panel-body">
+                <div class="list-group">
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-files-o fa-fw"></i> Hoá đơn
+                        <span class="pull-right text-muted small"><em>14 đơn</em></span>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fas fa-sitemap"></i> Hàng hoá
+                        <span class="pull-right text-muted small"><em>50 sản phẩm</em></span>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fas fa-table"></i> Bàn
+                        <span class="pull-right text-muted small"><em>18 bàn</em></span>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fa fa-users"></i> Khách hàng
+                        <span class="pull-right text-muted small"><em>205 khách</em></span>
+                    </a>
+                    <a href="#" class="list-group-item">
+                        <i class="fas fa-bars"></i> Thực đơn
+                        <span class="pull-right text-muted small"><em>45 sản phẩm đang bán</em></span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

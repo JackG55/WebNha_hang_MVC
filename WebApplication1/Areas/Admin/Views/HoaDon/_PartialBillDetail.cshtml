@@ -1,0 +1,161 @@
+﻿@using WebApplication1.Models;
+@model IEnumerable<DatMon_HoaDon_MonAn>
+
+
+
+
+    <div class="col-lg-5">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="fas fa-shopping-cart"></i> Thông tin order
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    @foreach (DatMon_HoaDon_MonAn it in Model)
+                    {
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="panel-namemargindetail">
+                                    <b>Hoá đơn số</b>
+                                </div>
+                                <input type="text" readonly class="form-control" value="@it.MaHoaDon">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="panel-namemargindetail">
+                                    <b>Số bàn</b>
+                                </div>
+                                <input type="text" readonly class="form-control" value="@it.MaBan">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel-namemargindetail">
+                                <b>Người lập hoá đơn</b>
+                                <input type="text" readonly class="form-control" value="@it.NguoiLapHoaDon">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel-namemargindetail">
+                                <b>Giờ vào</b>
+                            </div>
+                            <input type="datetime" readonly class="form-control" value="@it.GioVao">
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="panel-namemargindetail">
+                                <b>Giờ ra</b>
+                            </div>
+                            <input type="datetime" readonly class="form-control" value="@it.GioRa">
+                        </div>
+
+                        break;
+                    }
+
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading"> Danh sách đã order</div>
+                <div class="panel-body">
+                    <div style="overflow-y: auto; height:200px;">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Món ăn</th>
+                                    <th>Số lượng</th>
+                                    <th>Đơn giá</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                    @foreach (DatMon_HoaDon_MonAn it in Model)
+                                    {
+                                <tr>
+                                    <td>@it.TenMonAn</td>
+                                    <td>@it.SoLuong</td>
+                                    <td>@it.GiaMon</td>
+                                </tr>
+                                    }
+
+                               
+                            </tbody>
+                        </table>
+                        @*<div class="panel-body font-sizebody">
+                            <div class="list-group">
+                                <div class="list-group-item magrinlistitem">
+                                    <div class="row">
+                                        <div class="col-lg-11">
+                                            <div class="row">
+                                                <div class="col-lg-9 font-sizebody">
+                                                    <p>Bánh mì sốt dưa mật ong</p>
+                                                </div>
+                                                <div class="col-lg-3 font-sizebody">
+                                                    <em>100000đ</em>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <button type="button"><i class="fa fa-times-circle"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item magrinlistitem">
+                                    <div class="row">
+                                        <div class="col-lg-10">
+                                            <div class="row">
+                                                <div class="col-lg-9 font-sizebody">
+                                                    <p>Bánh mì sốt dưa mật ong</p>
+                                                </div>
+                                                <div class="col-lg-3 font-sizebody">
+                                                    <em>100000đ</em>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <button type="button"><i class="fa fa-times-circle"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item magrinlistitem">
+                                    <div class="row">
+                                        <div class="col-lg-10">
+                                            <div class="row">
+                                                <div class="col-lg-9 font-sizebody">
+                                                    <p>Bánh mì sốt dưa mật ong</p>
+                                                </div>
+                                                <div class="col-lg-3 font-sizebody">
+                                                    <em>100000đ</em>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <button type="button"><i class="fa fa-times-circle"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="panel-namemargindetail">
+                    <b>Ghi chú</b>
+                </div>
+                <textarea class="form-control" name="Note" style="height:100px;width: 400px;"></textarea>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-lg-12">
+                        @foreach (DatMon_HoaDon_MonAn it in Model)
+                        {
+                            <p style="font-size: 3rem; font-weight: 500;">Tổng tiền : @it.TongTien VNĐ</p>
+                            break;
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+

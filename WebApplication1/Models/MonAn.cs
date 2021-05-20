@@ -33,7 +33,7 @@ namespace WebApplication1.Models
 
         public decimal? GiaKhuyenMai { get; set; }
 
-        public int? MaLoaiMon { get; set; }
+        public int MaLoaiMon { get; set; }
 
         public DateTime? NgayTao { get; set; }
 

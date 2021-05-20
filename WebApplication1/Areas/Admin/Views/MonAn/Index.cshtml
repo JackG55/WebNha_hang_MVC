@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "Menu thực đơn";
+    Layout = "~/Areas/Admin/Views/Shared/_UseLayout.cshtml";
+}
+    <link href="~/Areas/Admin/Content/css/style.css" rel="stylesheet" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="~/Areas/Admin/Content/js/xulymonan.js"></script>
+
+@section Setactive_menu{
+    class = "active"
+}
+@using WebApplication1.Models
+@model List<LoaiMon_SoLuong>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Menu thực đơn</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Danh sách các loại món ăn</div>
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                <div class="row ">
+                    <button type="button" class="btn btn-success btn-add" style="margin: 15px 15px -3px 35px" data-url="@Url.Action("Create_loai_mon", new {  @ma_loai_mon = Model.FirstOrDefault().MaLoaiMon})">
+                        <i class="fas fa-plus"></i>Thêm loại món
+                    </button>
+                </div>
+                <table id="dtVerticalScrollExample" class="table table-image table-sm table-bordered table-hover table-responsive-md btn-table margintable" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="th-sm">Tên loại món</th>
+                            <th scope="col" class="th-sm">Số lượng món</th>
+                            <th scope="col" class="th-sm"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (LoaiMon_SoLuong it in Model)
+                        {
+                            <tr>
+                                <td>@it.TenLoaiMon</td>
+                                <td>@it.SoLuongMonAn</td>
+                                <td>
+                                    <button type="button" onclick="getAll(@it.MaLoaiMon)" title="Xem danh sách món ăn">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button type="button" class="btn-edit" data-url="@Url.Action("Edit_loai_mon", new {  @ma_loai_mon = it.MaLoaiMon})">
+                                        <i class="fas fa-pencil-alt" title="Sửa"></i>
+                                    </button>
+                                    <button type="button" class="btn-delete" data-url="@Url.Action("Delete_loai_mon", new {  @ma_loai_mon = it.MaLoaiMon})">
+                                        <i class="fas fa-trash-alt" title="Xoá"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="dataModel"></div>
+
+<div id="Modal_partial"></div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var place = $('#Modal_partial');
+        $('.btn-edit').click(function () {
+            var url = $(this).data('url');
+            $.get(url).done(function (data) {
+                place.html(data);
+                place.find('.modal').modal('show');
+
+            })
+        })
+
+        $('.btn-delete').click(function () {
+            var url = $(this).data('url');
+            $.get(url).done(function (data) {
+                place.html(data);
+                place.find('.modal').modal('show');
+
+            })
+        })
+
+        $('.btn-add').click(function () {
+            var url = $(this).data('url');
+            $.get(url).done(function (data) {
+                place.html(data);
+                place.find('.modal').modal('show');
+
+            })
+        })
+
+    })
+
+
+</script>
+
+

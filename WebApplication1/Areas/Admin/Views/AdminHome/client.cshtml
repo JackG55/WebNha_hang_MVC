@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Danh sách khách hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_UseLayout.cshtml";
+}
+
+@section Setactive_client{
+    class = "active"
+}
+    <script src="~/Areas/Admin/Content/js/xulymonan.js"></script>
+@using WebApplication1.Models;
+@model List<PhanHoi>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Phản hồi từ khách hàng</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="row">
+                <div class="col-lg-12 ">
+                    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                        <table id="dtVerticalScrollExample" class="table table-image table-sm table-bordered table-hover table-responsive-md btn-table margintable" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="th-sm">Email</th>
+                                    <th scope="col" class="th-sm">Mã món ăn</th>
+                                    <th scope="col" class="th-sm">Phản hồi</th>
+                                    <th scope="col" class="th-sm">Thời gian</th>
+                                    <th scope="col" class="th-sm">Chọn</th>
+                                </tr>
+                            </thead>
+                            <tbody> 
+                                @foreach(PhanHoi it in Model)
+                                {
+                                <tr>
+                                    <td>@it.Email</td>
+                                    <td>@it.MaMonAn</td>
+                                    <td>@it.LoiNhan</td>
+                                    <td>@it.ThoiGian</td>
+                                    <td>
+                                        @if (it.TrangThai == 1)
+                                        {
+                                            <input type="checkbox" class="checks" checked value="@it.MaPhanHoi">
+                                        }
+                                        else
+                                        {
+                                            <input type="checkbox" class="checks" value="@it.MaPhanHoi">
+                                        }
+
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.checks').change(function (event) {
+            var id = event.target.value
+            console.log(id)
+            $.ajax({
+                url: '/AdminHome/edit_phan_hoi/' + id,
+                contentType: 'application/html ; charset:utf-8',
+                type: 'GET',
+                success: alert("thanh cong")
+            });
+        })
+    })
+</script>
+

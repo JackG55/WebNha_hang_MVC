@@ -1,0 +1,49 @@
+﻿
+@using WebApplication1.Models;
+@model  MonAn
+<!-- Modal -->
+<div class="modal " id="Edit_mon_an">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLongTitle">Xoá món ăn</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form action="/MonAn/Delete_mon_an" method="post">
+                    <div class="container-fluid">
+                        <div class="row" style="display:none">
+                            <input type="text" name="MaMonAn" id="ma_mon_an" class="form-control" placeholder="@Model.MaMonAn" value="@Model.MaMonAn" readonly>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <span>
+                                    <img src="~/Content/image/@Model.HinhAnh" style=" display: inline-block;max-width:200px;max-height:100px;width: auto;height: auto;"
+                                         alt="chưa có ảnh" onerror="this.onerror=null;this.src='~Content/image/404.png';" />
+                                </span>
+                                <span>
+                                    Bạn có chắc muốn xoá món <span style="font-weight:600">@Model.TenMonAn</span> <span> này không ?</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="control-group">
+                                <div class="controls" style="margin-top:2rem">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-left:16rem">KHÔNG</button>
+                                    <button type="submit" class="btn btn-danger update" style="margin-left: 14rem">XOÁ</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>              
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

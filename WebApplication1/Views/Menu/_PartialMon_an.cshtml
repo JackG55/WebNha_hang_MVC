@@ -1,7 +1,7 @@
 ﻿@using WebApplication1.Models;
 @model List<MonAn>
 
-
+    <div class="menufood col-md-10 marginchangebig">
         <div class="container">
             <div class="row d-flex algin-stretch">
                 @{
@@ -22,7 +22,7 @@
                                             <h3 class="food-name">@mon.TenMonAn</h3>
                                             <p class="price">@mon.GiaMon đ</p>
                                             <div class="order">
-                                                <button class=" btn-primary order-button" type="button">ĐẶT NGAY</button>
+                                                <button class=" btn-primary order-button" type="button" onclick="addToCart(@mon.MaMonAn,1,0,@mon.GiaMon.ToString())" title="Thêm vào giỏ hàng">ĐẶT NGAY</button>
                                             </div>
                                         </div>
                                     </div>
@@ -40,7 +40,7 @@
                                             <h3 class="food-name">@mon.TenMonAn</h3>
                                             <p class="price">@mon.GiaMon đ</p>
                                             <div class="order">
-                                                <button class=" btn-primary order-button" type="button">ĐẶT NGAY</button>
+                                                <button class=" btn-primary order-button" type="button" onclick="addToCart(@mon.MaMonAn,1,0,@mon.GiaMon.ToString())" title="Thêm vào giỏ hàng">ĐẶT NGAY</button>
                                             </div>
 
                                         </div>
@@ -51,11 +51,12 @@
                         }
 
                     }
-
                 }
 
 
             </div>
         </div>
-
+    </div>    
+        
+<script src="~/Content/Js/xulymonan_giohang.js"></script>
 

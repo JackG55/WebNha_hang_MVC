@@ -13,12 +13,14 @@ namespace WebApplication1.Models
         }
 
         public virtual DbSet<Ban> Bans { get; set; }
+        public virtual DbSet<Ban_HoaDon> Ban_HoaDon { get; set; }
         public virtual DbSet<DatMon> DatMons { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<LoaiMon> LoaiMons { get; set; }
         public virtual DbSet<MonAn> MonAns { get; set; }
         public virtual DbSet<PhanHoi> PhanHois { get; set; }
         public virtual DbSet<QuanLy> QuanLies { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<ThongTinNguoiQuanLy> ThongTinNguoiQuanLies { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -33,9 +35,18 @@ namespace WebApplication1.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<Ban>()
+                .HasOptional(e => e.Ban_HoaDon)
+                .WithRequired(e => e.Ban);
+
+            modelBuilder.Entity<Ban>()
                 .HasMany(e => e.DatMons)
                 .WithRequired(e => e.Ban)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Ban_HoaDon>()
+                .Property(e => e.MaBan)
+                .IsFixedLength()
+                .IsUnicode(false);
 
             modelBuilder.Entity<DatMon>()
                 .Property(e => e.MaBan)
@@ -46,24 +57,24 @@ namespace WebApplication1.Models
                 .Property(e => e.GiaMon)
                 .HasPrecision(10, 0);
 
-            modelBuilder.Entity<DatMon>()
-                .Property(e => e.MaHoaDon)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<HoaDon>()
-                .Property(e => e.MaHoaDon)
-                .IsFixedLength()
-                .IsUnicode(false);
-
             modelBuilder.Entity<HoaDon>()
                 .Property(e => e.NguoiLapHoaDon)
                 .IsFixedLength()
                 .IsUnicode(false);
 
+            modelBuilder.Entity<HoaDon>()
+                .HasMany(e => e.DatMons)
+                .WithRequired(e => e.HoaDon)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<LoaiMon>()
                 .Property(e => e.TieuDe)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<LoaiMon>()
+                .HasMany(e => e.MonAns)
+                .WithRequired(e => e.LoaiMon)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<MonAn>()
                 .Property(e => e.GiaMon)
@@ -75,6 +86,11 @@ namespace WebApplication1.Models
 
             modelBuilder.Entity<MonAn>()
                 .HasMany(e => e.DatMons)
+                .WithRequired(e => e.MonAn)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<MonAn>()
+                .HasMany(e => e.PhanHois)
                 .WithRequired(e => e.MonAn)
                 .WillCascadeOnDelete(false);
 

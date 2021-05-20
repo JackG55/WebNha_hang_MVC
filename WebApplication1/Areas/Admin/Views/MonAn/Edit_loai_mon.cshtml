@@ -1,0 +1,76 @@
+﻿@using WebApplication1.Models
+@model LoaiMon
+
+
+<!-- Modal -->
+<div class="modal " id="Edit_loai_mon">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLongTitle">Sửa loại món</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form action="/MonAn/Edit_loai_mon" method="post">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for="ma_loai_mon">Mã loại món</label>
+                                    <input type="text" name="MaLoaiMon" id="ma_loai_mon" class="form-control" placeholder="" value="@Model.MaLoaiMon" readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <div class="form-group">
+                                    <label for="ten_loai_mon">Tên loại món</label>
+                                    <input type="text" name="TenLoaiMon" id="ten_loai_mon" class="form-control" placeholder="" value="@Model.TenLoaiMon">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <div class="form-group">
+                                    <label for="tieu_de">Tiêu đề</label>
+                                    <input type="text" name="TieuDe" id="tieu_de" class="form-control" placeholder="" value="@Model.TieuDe">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <div class="form-group">
+                                    <label for="tu_khoa">Từ khoá tìm kiếm</label>
+                                    <input type="text" name="TuKhoaTimKiem" id="tu_khoa" class="form-control" placeholder="" value="@Model.TuKhoaTimKiem">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="control-group">
+                                <div class="controls" style="margin-top:2rem">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-left:16rem">HUỶ</button>
+                                    <button type="submit" class="btn btn-danger update" style="margin-left: 14rem">SỬA</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

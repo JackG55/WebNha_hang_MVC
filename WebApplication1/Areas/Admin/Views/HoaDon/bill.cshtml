@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Danh sách hoá đơn";
+    Layout = "~/Areas/Admin/Views/Shared/_UseLayout.cshtml";
+}
+
+<script src="~/Areas/Admin/Content/js/xulymonan.js"></script>
+
+@using WebApplication1.Models;
+@model List<HoaDon>
+
+@section Setactive_bill{
+    class = "active"
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Hoá đơn</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Danh sách hoá đơn</div>
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                <table id="dtVerticalScrollExample" class="table table-image table-sm table-bordered table-hover table-responsive-md btn-table margintable" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="th-sm">Mã hoá đơn</th>
+                            <th scope="col" class="th-sm">Giờ vào</th>
+                            <th scope="col" class="th-sm">Giờ ra</th>
+                            <th scope="col" class="th-sm">Tổng tiền</th>
+                            <th scope="col" class="th-sm">Khuyến mãi</th>
+                            <th scope="col" class="th-sm">Người lập hoá đơn</th>
+                            <th scope="col" class="th-sm"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (HoaDon it in Model)
+                        {
+                            <tr>
+                                <td>@it.MaHoaDon</td>
+                                <td>@it.GioVao</td>
+                                <td>@it.GioRa</td>
+                                <td>@it.TongTien</td>
+                                <td>@it.KhuyenMai</td>
+                                <td>@it.NguoiLapHoaDon</td>
+                                <td>
+                                    <button type="button" onclick="getDetailBill(@it.MaHoaDon);" title="Xem chi tiết hoá đơn">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button type="button">
+                                        <i class="fas fa-pencil-alt" title="Sửa"></i>
+                                    </button>
+                                    <button type="button">
+                                        <i class="fas fa-trash-alt" title="Xoá"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div style="position:center">
+            <div id="dataBill" class="module-body">
+
+            </div>
+        </div>
+
+    </div>
+</div>

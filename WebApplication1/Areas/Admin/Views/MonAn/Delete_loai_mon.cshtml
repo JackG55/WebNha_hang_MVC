@@ -1,0 +1,46 @@
+﻿
+@using WebApplication1.Models;
+@model  LoaiMon
+<!-- Modal -->
+<div class="modal " id="Delete_loai_mon">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLongTitle">Xoá Loại món</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form action="/MonAn/Delete_loai_mon" method="post">
+                    <div class="container-fluid">
+                        <div class="row" style="display:none">
+                            <input type="text" name="MaLoaiMon" id="ma_loai_mon" class="form-control" placeholder="@Model.MaLoaiMon" value="@Model.MaLoaiMon" readonly>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <p>
+                                    Bạn có chắc muốn xoá món <span style="font-weight:600">@Model.TenLoaiMon</span> <span> này không ?</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="control-group">
+                                <div class="controls" style="margin-top:2rem">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-left:16rem">KHÔNG</button>
+                                    <button type="submit" class="btn btn-danger update" style="margin-left: 14rem">XOÁ</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

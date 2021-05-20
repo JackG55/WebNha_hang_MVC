@@ -23,6 +23,9 @@ namespace WebApplication1.Models
         [StringLength(50)]
         public string MatKhau { get; set; }
 
+        [StringLength(50)]
+        public string VaiTro { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon> HoaDons { get; set; }
 

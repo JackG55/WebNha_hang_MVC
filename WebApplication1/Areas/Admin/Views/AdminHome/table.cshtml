@@ -1,0 +1,182 @@
+﻿
+@{
+    ViewBag.Title = "Phòng bàn";
+    Layout = "~/Areas/Admin/Views/Shared/_UseLayout.cshtml";
+}
+@section Setactive_table{
+    class = "active"
+}
+
+@using WebApplication1.Models;
+@model List<Ban>
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Danh sách bàn</h1>
+    </div>
+</div>
+<form action="/AdminHome/Them_ban" method="post">
+    <div class="row">
+        <div class="col-lg-2">
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-additonal btn-primary btn-additonalcolor">
+                    <i class="fas fa-plus"></i> Tạo bàn
+                </button>
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="panel-namemargin">
+                                <div class="col-lg-12">
+                                    <b class="panel-name">Số bàn</b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input type="text" name="MaBan"  class="form-control textinput margintable marginrow">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="panel-namemargin">
+                                <div class="col-lg-12">
+                                    <b class="panel-name">Tên bàn</b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input type="text" name="TenBan" class="form-control textinput margintable marginrow">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="panel-namemargin">
+                                <div class="col-lg-12">
+                                    <b class="panel-name">Trạng thái</b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input type="text" name="TrangThai" value="0" class="form-control textinput margintable marginrow" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="panel-namemargin">
+                                <div class="col-lg-12">
+                                    <b class="panel-name">Khu vực</b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <input type="text" name="Vitri" class="form-control textinput margintable marginrow">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-1">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fa fa-search"></i> Search
+                            </button>
+                        </span>
+                    </div>
+                    <div class="col-lg-1">
+                        <span class="input-group-btn">
+                            <button class="btn btn-additonal btn-primary btn-additonalcolorreset" type="button">
+                                <i class="fas fa-sync-alt"></i> Reset
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                        <table id="dtVerticalScrollExample" class="table table-image table-sm table-bordered table-hover table-responsive-md btn-table margintable" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="th-sm">#</th>
+                                    <th scope="col" class="th-sm">Tên bàn</th>
+                                    <th scope="col" class="th-sm">Trạng thái</th>
+                                    <th scope="col" class="th-sm">Khu vực</th>
+                                    <th scope="col" class="th-sm"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (Ban it in Model)
+                                {
+                                    if(@it.TrangThai == 1)
+                                    {
+                                        <tr style="color: #d9534f">
+                                            <th scope="row">@it.MaBan</th>
+                                            <td>@it.TenBan</td>
+                                            <td>Có khách</td>
+                                            <td>@it.Vitri</td>
+                                            <td>
+                                                <button type="button">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button type="button">
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                </button>
+                                                <button type="button">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                    if(@it.TrangThai == 0)
+                                    {
+                                        <tr style="color: #5cb85c">
+                                            <th scope="row">@it.MaBan</th>
+                                            <td>@it.TenBan</td>
+                                            <td>Đang trống</td>
+                                            <td>@it.Vitri</td>
+                                            <td>
+                                                <button type="button">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <button type="button">
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                </button>
+                                                <button type="button">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,116 @@
+﻿
+@using WebApplication1.Models;
+@model  MonAn
+<!-- Modal -->
+<div class="modal " id="Edit_mon_an">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLongTitle">Sửa món ăn</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form action="/MonAn/Edit_mon_an" method="post">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label for="ma_mon_an">Mã món ăn</label>
+                                        <input type="text" name="MaMonAn" id="ma_mon_an" class="form-control" placeholder="@Model.MaMonAn" value="@Model.MaMonAn" readonly>
+                                    </div>
+                             </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <div class="form-group">
+                                    <label for="ten_mon_an">Tên món ăn</label>
+                                    <input type="text" name="TenMonAn" id="ten_mon_an" class="form-control" placeholder="@Model.TenMonAn" value="@Model.TenMonAn">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <div class="form-group">
+                                    <label for="mo_ta">Mô tả</label>
+                                    <input type="text" name="MoTa" id="mo_ta" class="form-control" placeholder="@Model.MoTa" value="@Model.MoTa">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <div class="form-group">
+                                    <label for="gia_mon">Giá món</label>
+                                    <input type="number" name="GiaMon" id="gia_mon" class="form-control" placeholder="@Model.GiaMon" value="@Model.GiaMon">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <div class="form-group">
+                                    <label for="gia_khuyen_mai">Giá khuyến mãi</label>
+                                    <input type="number" name="GiaKhuyenMai" id="gia_khuyen_mai" class="form-control" placeholder="@Model.GiaKhuyenMai" value="@Model.GiaKhuyenMai">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <div class="form-group">
+                                    <label for="don_vi_tinh">Đơn vị tính</label>
+                                    <input type="text" name="DonViTinh" id="don_vi_tinh" class="form-control" placeholder="@Model.DonViTinh" value="@Model.DonViTinh">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <div class="form-group">
+                                    <label for="hinh_anh">Hình ảnh</label>
+                                    <input type="file" name="HinhAnh" id="HinhAnh" class="form-control-file " placeholder="@Model.HinhAnh" value="@Model.HinhAnh">
+
+                                    <img src="~/Content/image/@Model.HinhAnh" style=" display: inline-block;max-width:200px;max-height:100px;width: auto;height: auto;"
+                                         alt="chưa có ảnh" onerror="this.onerror=null;this.src='~Content/image/404.png';" />
+                                    <img src="~/Content/image/404.png" class="preview" style="display:inline-block;max-width:200px;max-height:100px;width: auto;height: auto; margin-left: 4rem" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="control-group">
+                                <div class="controls" style="margin-top:2rem">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-left:16rem">Đóng</button>
+                                    <button type="submit" class="btn btn-danger update" style="margin-left: 14rem">Cập nhật</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        const infile = document.getElementById("HinhAnh");
+        const preview = document.getElementsByClassName("preview")[0];
+        infile.addEventListener("change", function () {
+            const file = this.files[0];
+
+            var src = URL.createObjectURL(file);
+            preview.src = src;
+
+        })
+    })
+   
+
+</script>
+
